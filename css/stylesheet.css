@@ -52,6 +52,11 @@ nav ul li a, aside h1 a {
     flex-wrap:wrap;
 }
 
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+}
+
 @media(max-width:900px){
     aside{
         flex:100%;
