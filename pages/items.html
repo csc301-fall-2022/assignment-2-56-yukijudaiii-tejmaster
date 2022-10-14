@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saved Items</title>
     <link href="./media/logo.jpg" rel="icon">
-    <link rel="stylesheet" href="../css/stylesheet.css">     
+    <link rel="stylesheet" href="../css/stylesheet.css">
+    <script src = "../backend/trial.js"> </script>
 </head>
 
 
@@ -30,7 +31,7 @@
             <section>
                 <p> Here is a list of saved items </p>
             </section>
-            <button type="button" class="add" onclick="myFunction()">Add New Item</button>
+            <button type="button" class="add" id="add_button">Add New Item</button>
             <script>
                 function myFunction() {
                   let text;
@@ -40,19 +41,56 @@
                     text = "User cancelled the prompt.";
                   } else {
                     // add product and price to the table
-                    text = "Product: " + product + " Price: " + price;
+                    // text = "Product: " + product + " Price: " + price;
 
                     // create a new row
-                    let newRow = document.createElement("tr");
+                    // let newRow = document.createElement("tr");
 
                     // create a new cell
-                    let newCell = document.createElement("td");
-                    let newText = document.createTextNode(product);
-                    newCell.appendChild(newText);
-                    newRow.appendChild(newCell);
+                    // let newCell = document.createElement("td");
+                    // let newText = document.createTextNode(product);
+                    // newCell.appendChild(newText);
+                    // newRow.appendChild(newCell);
+                    addItems(product, price);
                   }
                   
                 }
+                document.addEventListener("DomContentLoaded", function(){console.log("aaa")
+                document.getElementById("add_button").onclick = addItem()});
+                function addItem(){
+                    //var name = document.getElementById("name").value;
+                    //var price = document.getElementById("price").value;
+                    let text;
+                    let product = prompt("New Product Name:");
+                    let price = prompt("New Product Price:");
+                      if (product == null || product == "" || price == null || price == "") {
+                        text = "User cancelled the prompt.";
+                      } else{
+                        var row = document.createElement("tr");
+                        row.id = name.replace(' ', '_');
+                        var n = document.createElement("td");
+                        n.innerHTML = name;
+                        var p = document.createElement("td");
+                        p.innerHTML = price;
+                        row.appendChild(n);
+                        row.appendChild(p);
+                        document.getElementById("myTable").appendChild(row);
+                        var b = document.createElement("button");
+                        b.appendChild(document.createTextNode("Delete"));
+                        b.onclick = function(){
+                            document.getElementById("myTable").removeChild(row);
+                        }
+                        var d = document.createElement("td");
+                        d.appendChild(b);
+                        row.appendChild(d);
+                  }
+                }
+
+                function deleteItem(id){
+                    var row = document.getElementById(id);
+                    row.parentNode.removeChild(row);
+                }
+
                 </script> 
             <table id="myTable">
                 <thead>
@@ -62,12 +100,8 @@
                     <th>Delete</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>CocaCola</td>
-                    <td>2.00</td>
-                    <td><button type="button">Delete</button></td>
-                  </tr>
+                <tbody id = "body">
+
                 </tbody>
                 <tfoot>
                   <tr>

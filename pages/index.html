@@ -28,8 +28,32 @@
         <article>
             <h1>Welcome</h1>
             <section>
-                <p>I am a student at University of Toronto. </p>
+                <p>Please enter your selected items for today: </p>
             </section>
+            <button type="button" class="add" onclick="myFunction()">Add New Item</button>
+            <script>
+                const myTable = document.getElementById("myTable");
+                document.getElementById("myTable").innerHTML = myTable;
+                function myFunction() {
+                  var text;
+                  var product = prompt("New Product Name:");
+                  var price = prompt("New Product Price:");
+                  if (product == null || product == "" || price == null || price == "") {
+                    text = "User cancelled the prompt.";
+                  } else {
+                    // add product and price to the table
+                    text = "Product: " + product + " Price: " + price;
+                    // create a new row
+                    var newRow = document.createElement("tr");
+                    // create a new cell
+                    var newCell = document.createElement("td");
+                    var newText = document.createTextNode(product);
+                    newCell.appendChild(newText);
+                    newRow.appendChild(newCell);
+                  }
+                  
+                }
+                </script>
         </article>
         <!-- <div>
             <img src="./media/pic1.jpg" style="width:20%;" alt="Terry"
