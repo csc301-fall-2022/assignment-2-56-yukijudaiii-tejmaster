@@ -33,6 +33,8 @@
             </section>
             <button type="button" class="add" id="add_button">Add New Item</button>
             <script>
+              document.addEventListener("DomContentLoaded", function(){console.log("aaa")
+              document.getElementById("add_button").onclick = addItem()});
                 function myFunction() {
                   let text;
                   let product = prompt("New Product Name:");
@@ -55,8 +57,7 @@
                   }
                   
                 }
-                document.addEventListener("DomContentLoaded", function(){console.log("aaa")
-                document.getElementById("add_button").onclick = addItem()});
+
                 function addItem(){
                     //var name = document.getElementById("name").value;
                     //var price = document.getElementById("price").value;
