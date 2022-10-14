@@ -31,7 +31,7 @@
             <section>
                 <p> Here is a list of saved items </p>
             </section>
-            <button type="button" class="add" id="add_button">Add New Item</button>
+            <button type="button" class="add" id="add_button" onclick="myFunction()">Add New Item</button>
             <script>
                 function myFunction() {
                   let text;
@@ -39,19 +39,17 @@
                   let price = prompt("New Product Price:");
                   if (product == null || product == "" || price == null || price == "") {
                     text = "User cancelled the prompt.";
-                  } else {
-                    // add product and price to the table
-                    // text = "Product: " + product + " Price: " + price;
-
-                    // create a new row
-                    // let newRow = document.createElement("tr");
-
-                    // create a new cell
-                    // let newCell = document.createElement("td");
-                    // let newText = document.createTextNode(product);
-                    // newCell.appendChild(newText);
-                    // newRow.appendChild(newCell);
-                    addItems(product, price);
+                  } 
+                  else {
+                    // save the text to item.json
+                    var fs = require('fs');
+                    var obj = {product: product, price: price};
+                    var json = JSON.stringify(obj);
+                    fs.writeFile('item.json', json, 'utf8', callback);
+                    function callback(err) {
+                        if (err) throw err;
+                        console.log('Saved!');
+                    }
                   }
                   
                 }
