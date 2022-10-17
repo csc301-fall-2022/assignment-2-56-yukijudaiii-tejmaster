@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link href="./media/logo.jpg" rel="icon">
+    <link rel="icon" type="image/x-icon" href="../resources/logo.png">
     <link rel="stylesheet" href="../css/stylesheet.css">     
     <script src = "../resources/jquery.js"> </script>
     <script src="../backend/trial.js"> </script>
@@ -16,11 +16,10 @@
     <div class="container">
     <aside>
     <header> <h1> Cashier 56  </h1></header>
-    <a href="index.html"><img src="../resources/logo.jpg" class="logo" alt="logo" title="Terry"></a> 
+    <a href="index.html"><img src="../resources/jsj.png" class="logo" alt="logo" title="Terry"></a> 
     <nav>
     <ul>
         <li> <a href="index.html">Home</a></li>
-        <li> <a href="items.html">Saved Items</a></li>
         <li> <a href="contact.html">Contact</a></li>
     </ul>
     </nav>
@@ -32,20 +31,21 @@
             <section>
                 <p>Please enter your selected items for today: </p>
                 <label>Name: <input type="text" id="name"></label><br>
-                <label>Price: <input type="number" id="price"></label><br>
-                <label>Quantity: <input type="number" id="quantity"></label><br>
+
+                <label>Price ($): <input type="number" id="price" min="0.01" step="0.01"></label><br>
+                <label>Quantity: <input type="number" id="quantity" min="0"></label><br>
+
                 <button id="add_update_item" class="add">Add/Update Item</button><br><br>
-        
-                <table id="cart-items">
+                <table id="cart-items" class="niceTable">
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Price</th>
+                            <th>Price ($)</th>
                             <th>Quantity</th>
-                            <th>Total</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th>Item Total ($)</th>
+                            <th>Decrease</th>
+                            <th>Increase</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
         

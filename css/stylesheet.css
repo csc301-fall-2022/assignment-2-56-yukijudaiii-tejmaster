@@ -1,5 +1,5 @@
 body{
-    font-family:cursive;
+    font-family: Helvetica;
     font-size:1.1rem;
 
 }
@@ -20,11 +20,13 @@ main{
     height:auto;
     position:absolute;
     top:0;
-    left:25vw;
+    left:22vw;
     overflow:auto;
 }
 
-
+input:invalid {
+    border: solid red 3px;
+  }
 
 nav ul {
     list-style:none;
@@ -44,7 +46,7 @@ nav ul li a, aside h1 a {
 
 .logo{
     height:12%;
-    border-radius:50%;
+    /* border-radius:13%; */
 }
 
 .container{
@@ -52,13 +54,19 @@ nav ul li a, aside h1 a {
     flex-wrap:wrap;
 }
 
-table, th, td {
+table, td{
     border: 1px solid;
     text-align: center;
 }
 
+thead {
+    background-color: #A39886;
+    color: white;
+    
+}
+
 .add{
-    background-color:rgb(56, 88, 192);
+    background-color:#5f7880;
     color:white;
     padding: 0.5em;
     margin:0.5em;
@@ -67,29 +75,10 @@ table, th, td {
 
 .add:hover {
     /* transform: translateY(-0.1em); */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background-color:rgb(3, 40, 161);
+    box-shadow: 5px 5px 20px rgb(173,216,230);
+    background-color:#5f7880;
+    cursor:pointer;
 }
-
-.add:after {
-    content: "";
-    background: rgb(56, 88, 192);
-    display: block;
-    position: absolute;
-    padding-top: 100%;
-    padding-left: 100%;
-    margin-left: 0!important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-  }
-  
-  .add:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-  }
 
 @media(max-width:900px){
     aside{
@@ -102,8 +91,48 @@ table, th, td {
         flex:100%;
         height:auto;
         position:relative;
+        left:0vw;
+        text-align: center;
     }
     .logo{
         height:20%;
     }
+    .niceTable{
+        margin-left: auto; 
+         margin-right: auto;
+    }
 }
+
+input[type=text] {
+    width: 20vw;
+    height: 3vh;
+    padding: 5 5%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #bbb;
+    /* background-color: #3CBC8D; */
+    color: black;
+  }
+input[type=text]:focus {
+    background-color: rgb(230, 230, 230);
+    color: black;
+}
+
+input[type=number] {
+    width: 20vw;
+    height: 3vh;
+    padding: 5 5%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #bbb;
+    /* background-color: #3CBC8D; */
+    color: black;
+  }
+input[type=number]:focus {
+    background-color: rgb(230, 230, 230);
+    color: black;
+}
+input[type=number]:invalid {
+    border: solid red 3px;
+
+  }
