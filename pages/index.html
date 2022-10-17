@@ -8,6 +8,7 @@
     <link href="./media/logo.jpg" rel="icon">
     <link rel="stylesheet" href="../css/stylesheet.css">     
     <script src = "../resources/jquery.js"> </script>
+    <script src="../backend/trial.js"> </script>
 </head>
 
 
@@ -30,15 +31,31 @@
             <h1>Welcome</h1>
             <section>
                 <p>Please enter your selected items for today: </p>
+                <label>Name: <input type="text" id="name"></label><br>
+                <label>Price: <input type="number" id="price"></label><br>
+                <label>Quantity: <input type="number" id="quantity"></label><br>
+                <button id="add_update_item" class="add">Add/Update Item</button><br><br>
+        
+                <table id="cart-items">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+        
+                    <tbody> </tbody>
+                </table>
+        
+                <p>Subtotal: <b id="subtotal">0.00</b></p>
+                <p>Taxes: <b id="taxes">0.00</b></p>
+                <p>Grand Total: <b id="grand_total">0.00</b></p>
             </section>
-            <button type="button" class="add" onclick="myFunction()">Add New Item</button>
-            <script>
-                $.getJSON('item.json', function(data) {         
-                    alert(data);
-                });
-                  
-            
-            </script>
         </article>
         <!-- <div>
             <img src="./media/pic1.jpg" style="width:20%;" alt="Terry"

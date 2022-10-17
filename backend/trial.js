@@ -1,61 +1,109 @@
-// // add new items to the table in items.html
-// var tbodyRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById("add_update_item").addEventListener("click", addItem);
+});
 
-// // Insert a row at the end of table
-// var newRow = tbodyRef.insertRow();
+function addItem() {
+    var name = document.getElementById('name').value;
+    var price = document.getElementById('price').value;
+    var quantity = document.getElementById('quantity').value;
+    if (name == "" || price == "" || quantity == "") {return ;}
+    id = name.replace(/\s/g, '_');
+    var check_value = document.getElementById(id);
+    if (check_value != null) {
+        row = document.getElementById(id);
+        row.cells[1].innerHTML = price;
+        row.cells[2].innerHTML = quantity;
+        row.cells[3].innerHTML = Math.round(quantity * price * 100) / 100;
+        calculate_all();
+    } else {
+        var row = document.createElement("tr");
+        row.id = id;
+        var n = document.createElement("td");
+        n.innerHTML = name;
+        var p = document.createElement("td");
+        p.innerHTML = price;
+        var q = document.createElement("td");
+        q.innerHTML = quantity;
+        var total = document.createElement("td");
+        total.innerHTML = Math.round(quantity * price * 100) / 100;
+        row.appendChild(n);
+        row.appendChild(p);
+        row.appendChild(q);
+        row.appendChild(total);
 
-// // Insert a cell at the end of the row
-// var newCell = newRow.insertCell();
+        // button for minus
+        var b1 = document.createElement("button");
+        b1.classList.add("decrease");
+        b1.appendChild(document.createTextNode("-"));
+        var minus = document.createElement("td");
+        minus.appendChild(b1);
+        row.appendChild(minus);
 
-// // Append a text node to the cell
-// var newText = document.createTextNode('new row');
-// newCell.appendChild(newText);
+        // button for plus
+        var b2 = document.createElement("button");
+        b2.appendChild(document.createTextNode("+"));
+        b2.classList.add("increase");
+        var plus = document.createElement("td");
+        plus.appendChild(b2);
+        row.appendChild(plus);
 
+        // button for delete
+        var b3 = document.createElement("button");
+        b3.appendChild(document.createTextNode("delete"));
+        b3.classList.add("delete");
+        var d = document.createElement("td");
+        d.appendChild(b3);
+        row.appendChild(d);
+        $(document.getElementById("cart-items")).find('tbody').append(row);
 
-// function Insert(name, price){
-//     var tbodyRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-//     var newRow = tbodyRef.insertRow();
-//     var newCell = newRow.insertCell();
-//     var newText = document.createTextNode(name);
-//     newCell.appendChild(newText);
-//     var newCell = newRow.insertCell();
-//     var newText = document.createTextNode(price);
-//     newCell.appendChild(newText);
-// }
+        calculate_all();
+        b1.onclick = function() {
+            var q = row.cells[2].innerHTML;
+            if (q > 0) {
+                row.cells[2].innerHTML = q - 1;
+                row.cells[3].innerHTML = Math.round(row.cells[1].innerHTML * row.cells[2].innerHTML * 100) / 100;
+                calculate_all();
+            }
+        };
+        b2.onclick = function() {
+            var q = row.cells[2].innerHTML;
+            row.cells[2].innerHTML = parseInt(q) + 1;
+            row.cells[3].innerHTML = Math.round(row.cells[1].innerHTML * row.cells[2].innerHTML * 100) / 100;
+            calculate_all();  
+        };
+        b3.onclick = function(){
+            document.getElementById("cart-items").deleteRow(row.rowIndex);
+            calculate_all();
+        }
 
-//Object.onclick = Insert("name", "price")
-document.addEventListener("DomContentLoaded", function(){console.log("aaa")
- document.getElementById("add_button").onclick = addItem()});
-function addItem(){
-    //var name = document.getElementById("name").value;
-    //var price = document.getElementById("price").value;
-    let text;
-                  let product = prompt("New Product Name:");
-                  let price = prompt("New Product Price:");
-                  if (product == null || product == "" || price == null || price == "") {
-                    text = "User cancelled the prompt.";
-                  } else{
-    var row = document.createElement("tr");
-    row.id = name.replace(' ', '_');
-    var n = document.createElement("td");
-    n.innerHTML = name;
-    var p = document.createElement("td");
-    p.innerHTML = price;
-    row.appendChild(n);
-    row.appendChild(p);
-    document.getElementById("myTable").appendChild(row);
-    var b = document.createElement("button");
-    b.appendChild(document.createTextNode("Delete"));
-    b.onclick = function(){
-        document.getElementById("myTable").removeChild(row);
     }
-    var d = document.createElement("td");
-    d.appendChild(b);
-    row.appendChild(d);
-}
 }
 
-function deleteItem(id){
-    var row = document.getElementById(id);
-    row.parentNode.removeChild(row);
+
+
+function calculate_all() {
+    calculate_subtotal();
+    calculate_tax();
+    calculate_total();
+}
+
+function calculate_subtotal() {
+    var table = document.getElementById("cart-items");
+    var subtotal = 0;
+    for (var i = 1, row; row = table.rows[i]; i++) {
+        subtotal += parseFloat(row.cells[3].innerHTML);
+    }
+    document.getElementById("subtotal").innerHTML = Math.round(subtotal * 100) / 100;
+}
+
+function calculate_tax() {
+    var tax = 0.13;
+    var subtotal = document.getElementById("subtotal").innerHTML;
+    document.getElementById("taxes").innerHTML = Math.round(subtotal * tax * 100) / 100;
+}
+
+function calculate_total() {
+    var subtotal = document.getElementById("subtotal").innerHTML;
+    var taxes = document.getElementById("taxes").innerHTML;
+    document.getElementById("grand_total").innerHTML = Math.round(parseFloat(subtotal) + parseFloat(taxes) * 100) / 100;
 }
