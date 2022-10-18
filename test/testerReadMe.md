@@ -22,4 +22,6 @@ You can also use other browser, Please read and follow the guide of [selenium ](
 
 Since the tester will do the test very quickly, you might not be able to see what happened. If you would like to see what does our tester do, please uncomment the line 35 of sleep()
 
+## In the future, we write more tests that will be testing on other functions such as 'discount', increase and decrease item, invalid inputs and etc. All those tests will be written similarly to the test that we have
+
 ## If you have any concerns, like experincing the issue of set up the path, please contact us
