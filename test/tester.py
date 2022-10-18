@@ -33,7 +33,6 @@ class MyTest(unittest.TestCase):
         # if you would like to see what happened, please decomment next line for sleep()
         
         # sleep(5)
-        
         test.driver.close()
         test.driver.quit()
         print("Test Completed, closing the browser")
