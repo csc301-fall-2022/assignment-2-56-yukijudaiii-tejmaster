@@ -38,4 +38,6 @@ Click 'delete' to totally remove the item
 
 Clear all the inputs from the boxes
 
+#### Tester created by Jest called tester.js in the test folder
+
 ## If you still have any concerns, please contact our team
