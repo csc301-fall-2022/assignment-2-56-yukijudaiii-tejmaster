@@ -11,8 +11,31 @@ You will see three different columns which are Name, Price, Quantity.
 
 Negative or 0 of Price wouldn't be accepted, Special symbols wouldn't be accepted
 
+## Functions:
+
 ### Add/Update Item
 
 Once you filled in all the spaces, you can click on the button shows 'Add/Update' Item. Then the newly inserted item will show up in the following table.
 
 The calculator will automatically calculate the total price includes tax.
+
+### Apply Discount
+
+Enter the number to apply a discount on the current total price, the input number N will be N percents off.
+
+(e.g. input of 10 means 10 percent off)
+
+Discounts can be added multiple times
+
+### Decrease
+Click '-' to remove one of the item
+### Increase
+Click '+' to add one more item
+### Remove
+Click 'delete' to totally remove the item
+
+### Clear
+
+Clear all the inputs from the boxes
+
+## If you still have any concerns, please contact our team
