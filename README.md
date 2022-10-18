@@ -40,4 +40,11 @@ Clear all the inputs from the boxes
 
 #### Tester created by Jest called tester.js in the test folder
 
+## Tester:
+
+Please go to the 'test' directory, all the introduction of using our tester will be there
+
+
 ## If you still have any concerns, please contact our team
+
+(Please note that every push or merge to this main branch will also cause an auto-deploy)
