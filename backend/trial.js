@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("add_update_item").addEventListener("click", addItem);
+    document.getElementById("apply_discount").addEventListener("click", applyDiscount);
 });
 
 function addItem() {
@@ -110,5 +111,16 @@ function calculate_tax() {
 function calculate_total() {
     var subtotal = document.getElementById("subtotal").innerHTML;
     var taxes = document.getElementById("taxes").innerHTML;
-    document.getElementById("grand_total").innerHTML = (Math.round(parseFloat(subtotal) + parseFloat(taxes) * 100) / 100).toFixed(2);
+    document.getElementById("grand_total").innerHTML = Math.round(parseFloat(subtotal) + parseFloat(taxes) * 100) / 100;  
+}
+
+function applyDiscount() {
+    var discount = document.getElementById("discount").value;
+    if (discount == "") {
+        return;
+    }
+    var total = document.getElementById("grand_total").innerHTML;
+    document.getElementById("grand_total").innerHTML = (Math.round((total * (100 - discount))) / 100).toFixed(2);
+    getElementById("grand_total").innerHTML = (Math.round((total - discount) * 100) / 100).toFixed(2);
+    document.getElementById("discount").value = "";
 }

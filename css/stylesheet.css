@@ -80,6 +80,36 @@ thead {
     cursor:pointer;
 }
 
+.apply{
+    background-color:#5f7880;
+    color:white;
+    padding: 0.5em;
+    margin:0.5em;
+    border-radius:1em;
+}
+
+.apply:hover {
+    /* transform: translateY(-0.1em); */
+    box-shadow: 5px 5px 20px rgb(173,216,230);
+    background-color:#5f7880;
+    cursor:pointer;
+}
+
+.clear{
+    background-color:#5f7880;
+    color:white;
+    padding: 0.5em;
+    margin:0.5em;
+    border-radius:1em;
+}
+
+.clear:hover {
+    /* transform: translateY(-0.1em); */
+    box-shadow: 5px 5px 20px rgb(173,216,230);
+    background-color:#5f7880;
+    cursor:pointer;
+}
+
 @media(max-width:900px){
     aside{
         flex:100%;
