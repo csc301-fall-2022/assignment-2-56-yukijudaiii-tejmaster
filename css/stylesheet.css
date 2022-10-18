@@ -96,17 +96,17 @@ thead {
 }
 
 .clear{
-    background-color:#5f7880;
+    background-color:#D0C0A6;
     color:white;
-    padding: 0.5em;
-    margin:0.5em;
+    padding: 1em;
+    /* margin:0.5em; */
     border-radius:1em;
 }
 
 .clear:hover {
     /* transform: translateY(-0.1em); */
-    box-shadow: 5px 5px 20px rgb(173,216,230);
-    background-color:#5f7880;
+    box-shadow: 5px 5px 20px #D0C0A6;
+    background-color:#D0C0A6;
     cursor:pointer;
 }
 
@@ -135,7 +135,7 @@ thead {
 
 input[type=text] {
     width: 20vw;
-    height: 3vh;
+    height: 2em;
     padding: 5 5%;
     margin: 8px 0;
     box-sizing: border-box;
@@ -150,7 +150,7 @@ input[type=text]:focus {
 
 input[type=number] {
     width: 20vw;
-    height: 3vh;
+    height: 2em;
     padding: 5 5%;
     margin: 8px 0;
     box-sizing: border-box;
