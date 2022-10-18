@@ -117,13 +117,14 @@ function calculate_total() {
 
 function applyDiscount() {
     var discount = document.getElementById("discount").value;
-    if (discount == "") {
+    if (discount == "" || discount < 0 || discount > 100) {
         return;
     }
     var total = document.getElementById("subtotal").innerHTML;
+    var grandTotal = document.getElementById("grand_total").innerHTML;
     var discount_value = (Math.round(total * discount) / 100).toFixed(2);
     document.getElementById("discount_value").innerHTML = discount_value;
-    document.getElementById("grand_total").innerHTML = (Math.round((parseFloat(total) - parseFloat(discount_value)) * 100) / 100).toFixed(2);
+    document.getElementById("grand_total").innerHTML = parseFloat(grandTotal) - parseFloat(discount_value);
     document.getElementById("discount").value = "";
 }
 
