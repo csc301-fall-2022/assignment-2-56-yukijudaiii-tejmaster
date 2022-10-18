@@ -1,7 +1,7 @@
 # CSC301-Assignment 2-Report
 ## Web Application Name: Cashier 56
 
-Cashier 56 is a simple-to-use web application that users can use to add/delete different items, and it also automatically calculates the total price of all products after tax. It is also dynamically designed since it can change the layout depending on the user’s device. For this project, my partner and I decided to develop it through the web application because we have more experience developing the web than the mobile application. Also, we believe it would be easier to test and debug since we can easily see the output and spot the error. Our ultimate goal is to implement our web page efficiently and have all the essential functions.
+Cashier 56 is a simple-to-use web application that users can use to add/delete different items, and it also automatically calculates the total price of all products after tax. It is deployed by Heroku and can be accessed from different devices. It is also dynamically designed since it can change the layout depending on the user’s device. For this project, my partner and I decided to develop it through the web application because we have more experience developing the web than the mobile application. Also, we believe it would be easier to test and debug since we can easily see the output and spot the error. Our ultimate goal is to implement our web page efficiently and have all the essential functions.
 
 
 However, the choice of what language to use to develop our application is also an important matter. In the following texts, I will analyze our views on our different options and the reason for our final decision.
