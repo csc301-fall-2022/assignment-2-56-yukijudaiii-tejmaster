@@ -73,7 +73,7 @@ function addItem() {
         b2.onclick = function() {
             var q = row.cells[2].innerHTML;
             row.cells[2].innerHTML = parseInt(q) + 1;
-            row.cells[3].innerHTML = Math.round(row.cells[1].innerHTML * row.cells[2].innerHTML * 100) / 100;
+            row.cells[3].innerHTML = (Math.round(row.cells[1].innerHTML * row.cells[2].innerHTML * 100) / 100).toFixed(2);
             calculate_all();  
         };
         b3.onclick = function(){
